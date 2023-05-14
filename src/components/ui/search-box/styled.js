@@ -21,6 +21,18 @@ export const SearchInput = styled.input`
     line-height: 20px;
     border: none;
     padding: 2px;
+
+    &:hover {
+        opacity: 1;
+        border-bottom: 1px solid #5A698F;
+        caret-color: #fc4747;
+    }
+    &:focus {
+        opacity: 1;
+        border-bottom: 1px solid #5A698F;
+        outline: 0;
+        caret-color: #fc4747;
+    }
 `;
 
 export const SearchIcon = styled.div`

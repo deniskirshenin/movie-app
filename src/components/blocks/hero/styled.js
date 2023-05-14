@@ -9,6 +9,10 @@ export const HeroContainer = styled.div`
     width: 100%;
     margin: 0 auto;
     height: auto;
+
+    @media (min-width: 768px) {
+        width: fit-content;
+    };
 `;
 
 export const HeroImageContainer = styled.img`

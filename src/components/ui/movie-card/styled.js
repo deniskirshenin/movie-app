@@ -4,8 +4,8 @@ import { StyledBookmarkButton } from "../bookmark-button/styled";
 export const MoviesPosterColumn = styled.img`
     border-radius: 5px;
     margin: 0.5rem;
-    width: 164px;
-    height: 154px;
+    width: 100%;
+    height: auto;
     transition: all ease-out 0.2s;
     object-fit: fill;
     filter: brightness(0.6);
@@ -22,6 +22,14 @@ export const MovieInformationContainerColumn = styled.div`
     display: flex;
     flex-direction: column;
     width: 164px;
+
+    @media (min-width: 768px) {
+        width: 220px;
+    };
+
+    @media (min-width: 1200px) {
+        width: 280px;
+    };
 `;
 
 export const MovieInformationTextColumn = styled.div`
@@ -56,10 +64,25 @@ export const MovieNameColumn = styled.span`
     line-height: 19px;
 `;
 
-export const MovieBookmarkButtonColumn = styled(StyledBookmarkButton)`
+export const MovieBookmarkButtonAdd = styled(StyledBookmarkButton)`
     position: absolute;
     left: 130px;
     top: 16px;
+
+    &:hover {
+        background-color: #fff;
+        path {
+            stroke: #10141E;
+            fill: #10141E;
+        }
+    }
+`;
+
+export const MovieBookmarkButtonRemove = styled(StyledBookmarkButton)`
+    position: absolute;
+    left: 130px;
+    top: 16px;
+    background-color: #FC4747;
 
     &:hover {
         background-color: #fff;

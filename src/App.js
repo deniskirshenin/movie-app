@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AppRoute } from './const';
 import PageWrapper from './components/layout/page-wrapper/page-wrapper';
 import SearchPage from './components/pages/search-page/search-page';
+import BookmarkPage from './components/pages/bookmarked-page/bookmarked-page';
+import { GlobalProvider } from './context/GlobalState';
 
 const URL = "https://api.themoviedb.org/3";
 
@@ -14,7 +16,7 @@ export const API_KEY = "add8c0cdbdcd6f1026ba6df9d6cef47d";
 
 const endpoints = {
   movies: "/movie/now_playing",
-  popular: "/movie/popular",
+  popular: "/movie/top_rated",
   tvSeries: "/tv/top_rated",
 };
 
@@ -52,7 +54,7 @@ function App() {
   useEffect(() => console.log(tvSeries), [tvSeries]);
 
   return (
-    <>
+    <GlobalProvider>
       <Router>
         <Routes>
           <Route path={AppRoute.MAIN} element={<PageWrapper />}>
@@ -64,8 +66,8 @@ function App() {
             />
             <Route path={AppRoute.HOME} element={<HomePage 
                 movie={movies[Math.floor(Math.random() * movies.length)]}
-                movies={popular}
-                shows={movies}
+                movies={movies}
+                shows={popular}
               />}
             />
             <Route 
@@ -76,12 +78,14 @@ function App() {
             <Route path={AppRoute.TVSERIES} element={<TvSeriesPage 
                 shows={tvSeries}
               />} />
+            <Route path={AppRoute.BOOKMARK} element={<BookmarkPage
+              />} />
             <Route path={AppRoute.SEARCH} element={<SearchPage
               />} />
           </Route>
         </Routes>
       </Router>
-    </>
+    </GlobalProvider>
   );
 }
 

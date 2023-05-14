@@ -21,13 +21,9 @@ const SearchBox = () => {
     getShows(searchValue);
     }, [searchValue]);
 
-    console.log(shows);
-
-    const handleChange = (e) => {
-        setSearchValue(e.target.value);
+    const handleChange = (evt) => {
+        setSearchValue(evt.target.value);
     };
-
-
 
     const searchPageData = {
         title: `Found ${shows.length} results for ${searchValue}`, 
@@ -44,12 +40,9 @@ const SearchBox = () => {
                 onChange={handleChange}
             />
             </SearchContainer>
-            {searchValue ? (<Navigate to="/search" state={searchPageData} replace={true} />) : <Navigate to="/" />}     
+            {(searchValue.length > 0) && (<Navigate to="/search" state={searchPageData} replace={true} />)}     
         </>
-        
     );
 };
 
 export default SearchBox;
-
-//title={`Search for ${searchValue}`}

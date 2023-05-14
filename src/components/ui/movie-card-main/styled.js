@@ -16,6 +16,8 @@ export const MoviesPoster = styled.img`
     object-fit: fill;
     filter: brightness(0.6);
 
+    
+
     &:hover {
         transform: scale(1.1);
         filter: brightness(1);

@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 
-export const StyledLogo = styled(Link)`
+export const StyledLogo = styled(NavLink)`
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -10,5 +10,9 @@ export const StyledLogo = styled(Link)`
 
     &:hover path{
         fill: green;
+    }
+
+    &.active path {
+        fill: #FC4747;
     }
 `;
