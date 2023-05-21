@@ -66,12 +66,13 @@ As well it was my first React project. Learned basic React concepts and CSS-in-J
 Got familiar with API calls with Axios, learned basics of state management and Context API.
 
 ### Continued development
-
+Add Footer.
 Resolve bug with search bar.
 Planning to move project to Next.js and TypeScript. Add state management tool like Redux.
 Learn more about improving perfomance.
 Reorganise components and implement Storybook.
 Add features like opening full screen movie card.
+Add tests for components.
 
 ### Useful resources
 

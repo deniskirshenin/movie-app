@@ -1,9 +1,9 @@
 import React from "react";
 
-import {ReactComponent as Home} from "/Users/fish/movie-app/src/assets/icon-nav-home.svg";
-import {ReactComponent as Movies} from "/Users/fish/movie-app/src/assets/icon-nav-movies.svg";
-import {ReactComponent as TvSeries} from "/Users/fish/movie-app/src/assets/icon-nav-tv-series.svg";
-import {ReactComponent as Bookmark} from "/Users/fish/movie-app/src/assets/icon-nav-bookmark.svg";
+import {ReactComponent as Home} from "../../../assets/icon-nav-home.svg";
+import {ReactComponent as Movies} from "../../../assets/icon-nav-movies.svg";
+import {ReactComponent as TvSeries} from "../../../assets/icon-nav-tv-series.svg";
+import {ReactComponent as Bookmark} from "../../../assets/icon-nav-bookmark.svg";
 import { StyledLink, StyledNav } from "./styled";
 import { AppRoute } from "../../../const";
 
