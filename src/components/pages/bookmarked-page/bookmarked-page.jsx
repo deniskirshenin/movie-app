@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Movies from "../../blocks/movies/movies";
 import { StyledBookmarkPage } from "./styled";
-import { GlobalContext } from "../../../context/GlobalState";
+import { GlobalContext } from "../../../contexts/GlobalState";
 import NotFound from "../../blocks/not-found/not-found";
 
 const BookmarkPage = () => {

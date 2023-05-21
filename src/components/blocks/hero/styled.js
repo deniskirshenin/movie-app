@@ -18,7 +18,7 @@ export const HeroContainer = styled.div`
 export const HeroImageContainer = styled.img`
     width: 100%;
     object-fit: contain;
-    height: auto;
+    height: 100%;
 `;
 
 export const HeroTextContainer = styled.div`

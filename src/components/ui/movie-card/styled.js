@@ -76,6 +76,15 @@ export const MovieBookmarkButtonAdd = styled(StyledBookmarkButton)`
             fill: #10141E;
         }
     }
+
+    @media (min-width: 768px) {
+        left: 180px;
+        top: 20px;
+    }
+
+    @media (min-width: 1200px) {
+        left: 240px;
+    }
 `;
 
 export const MovieBookmarkButtonRemove = styled(StyledBookmarkButton)`

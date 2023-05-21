@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const StyledShowsList = styled.div`
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     column-gap: 15px;
     padding: 16px;
 
@@ -12,9 +12,9 @@ export const StyledShowsList = styled.div`
         padding: 25px;
     }
 
-    @media (min-width: 1440px) {
+    @media (min-width: 1200px) {
         grid-template-columns: repeat(4, 1fr);
         column-gap: 40px;
-        padding: 35px;
+        padding: 36px;
     }
 `;

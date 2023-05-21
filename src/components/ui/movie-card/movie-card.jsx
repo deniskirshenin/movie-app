@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import { GlobalContext } from "../../../context/GlobalState";
+import { GlobalContext } from "../../../contexts/GlobalState";
 import { MovieBookmarkButtonAdd, MovieBookmarkButtonRemove, MovieInfoColumn, MovieInformationContainerColumn, MovieInformationTextColumn, MovieNameColumn, MovieVoteColumn, MovieYearColumn, MoviesPosterColumn } from "./styled";
 import {ReactComponent as BookmarkAdd} from "/Users/fish/movie-app/src/assets/icon-bookmark-empty.svg";
 import {ReactComponent as BookmarkRemove} from "/Users/fish/movie-app/src/assets/icon-bookmark-full.svg";
