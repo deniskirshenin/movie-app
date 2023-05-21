@@ -1,10 +1,10 @@
 import React, {useContext} from "react";
 import { GlobalContext } from "../../../contexts/GlobalState";
 import { MovieBookmarkButtonAdd, MovieBookmarkButtonRemove, MovieInfoColumn, MovieInformationContainerColumn, MovieInformationTextColumn, MovieNameColumn, MovieVoteColumn, MovieYearColumn, MoviesPosterColumn } from "./styled";
-import {ReactComponent as BookmarkAdd} from "/Users/fish/movie-app/src/assets/icon-bookmark-empty.svg";
-import {ReactComponent as BookmarkRemove} from "/Users/fish/movie-app/src/assets/icon-bookmark-full.svg";
-import {renderYear} from "/Users/fish/movie-app/src/utils/utils.js";
-import noImage from "/Users/fish/movie-app/src/assets/no-image.png";
+import {ReactComponent as BookmarkAdd} from "../../../assets/icon-bookmark-empty.svg";
+import {ReactComponent as BookmarkRemove} from "../../../assets/icon-bookmark-full.svg";
+import {renderYear} from "../../../utils/utils";
+import noImage from "../../../assets/no-image.png";
 
 const MovieCard = (show) => {
     const {addMovieToWatchList, removeMovieFromWatchList, watchlist} = useContext(GlobalContext);

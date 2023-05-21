@@ -1,7 +1,7 @@
 import React from "react";
 import { MovieBookmarkButton, MovieInfo, MovieInformationContainer, MovieInformationText, MovieName, MovieVote, MovieYear, MoviesPoster } from "./styled";
-import {ReactComponent as BookmarkIcon} from "/Users/fish/movie-app/src/assets/icon-bookmark-empty.svg";
-import {renderYear} from "/Users/fish/movie-app/src/utils/utils.js";
+import {ReactComponent as BookmarkIcon} from "../../../assets/icon-bookmark-empty.svg";
+import {renderYear} from "../../../utils/utils";
 
 const MovieCardMain = (movie) => {
     return (

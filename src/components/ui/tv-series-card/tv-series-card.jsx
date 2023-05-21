@@ -1,7 +1,7 @@
 import React from "react";
 import {ReactComponent as BookmarkIcon} from "/Users/fish/movie-app/src/assets/icon-bookmark-empty.svg";
 import { TvSeriesBookmarkButton, TvSeriesInfo, TvSeriesInformationContainer, TvSeriesInformationText, TvSeriesName, TvSeriesPoster, TvSeriesVote, TvSeriesYear } from "./styled";
-import {renderYear} from "/Users/fish/movie-app/src/utils/utils.js";
+import {renderYear} from "../../../utils/utils";
 
 const TvSeriesCard = (show) => {
     return (

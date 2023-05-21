@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import imageAvatar from "/Users/fish/movie-app/src/assets/image-avatar.png";
+import imageAvatar from "../../../assets/image-avatar.png";
 
 export const AvatarContainer = styled.div`
     box-sizing: border-box;
