@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import iconSearch from "/../src/assets/icon-search.svg";
+import iconSearch from "../../../assets/icon-search.svg";
 
 export const SearchContainer = styled.div`
     display: flex;
