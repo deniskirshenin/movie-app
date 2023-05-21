@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const StyledNav = styled.nav`
@@ -7,7 +7,7 @@ export const StyledNav = styled.nav`
     justify-content: space-between;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink)`
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -17,5 +17,9 @@ export const StyledLink = styled(Link)`
 
     &:hover path{
         fill: #fff;
+    }
+
+    &.active path {
+        fill: crimson;
     }
 `;

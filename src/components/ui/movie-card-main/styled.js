@@ -16,8 +16,13 @@ export const MoviesPoster = styled.img`
     object-fit: fill;
     filter: brightness(0.6);
 
+    @media (min-width: 768px) {
+        min-width: 470px;
+        height: 230px;
+    }    
+
     &:hover {
-        transform: scale(1.1);
+        transform: scale(1.07);
         filter: brightness(1);
         transition: all ease-out 0.2s;
     }
@@ -73,5 +78,10 @@ export const MovieBookmarkButton = styled(StyledBookmarkButton)`
             stroke: #10141E;
             fill: #10141E;
         }
+    }
+
+    @media (min-width: 768px) {
+        left: 430px;
+        top: 20px;
     }
 `;

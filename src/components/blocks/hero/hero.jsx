@@ -5,8 +5,6 @@ import { TitleSize } from "../../ui/title/title";
 const imgUrl = "https://image.tmdb.org/t/p/original";
 
 const Hero = ({ movie }) => {
-    console.log(movie);
-
     return (
         <HeroContainer>
             <HeroImageContainer src={`${imgUrl}${movie?.backdrop_path}`} alt={`${movie?.name}`} />

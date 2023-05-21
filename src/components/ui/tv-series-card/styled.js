@@ -4,7 +4,7 @@ import { StyledBookmarkButton } from "../bookmark-button/styled";
 export const TvSeriesPoster = styled.img`
     border-radius: 5px;
     margin: 0.5rem;
-    width: 164px;
+    min-width: 164px;
     height: 154px;
     transition: all ease-out 0.2s;
     object-fit: fill;
@@ -22,6 +22,14 @@ export const TvSeriesInformationContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 164px;
+
+    @media (min-width: 768px) {
+        width: 220px;
+    };
+
+    @media (min-width: 1200px) {
+        width: 280px;
+    };
 `;
 
 export const TvSeriesInformationText = styled.div`

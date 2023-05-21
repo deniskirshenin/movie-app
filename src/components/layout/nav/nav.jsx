@@ -7,7 +7,6 @@ import {ReactComponent as Bookmark} from "/Users/fish/movie-app/src/assets/icon-
 import { StyledLink, StyledNav } from "./styled";
 import { AppRoute } from "../../../const";
 
-
 const Nav = () => {
     return (
         <StyledNav>
@@ -20,7 +19,7 @@ const Nav = () => {
             <StyledLink to={AppRoute.TVSERIES}>
                 <TvSeries />
             </StyledLink>
-            <StyledLink href="/">
+            <StyledLink to={AppRoute.BOOKMARK}>
                 <Bookmark />
             </StyledLink>
         </StyledNav>
