@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { StyledHomePage } from "./styled";
-import TrendingMovies from "../../blocks/trending-movies/trending-movies";
 import Movies from "../../blocks/movies/movies";
 import { PaginationContainer, StyledButton } from "../../ui/pagination-button/styled";
 import { URL, endpoints } from "../../../api/api";
@@ -20,7 +19,6 @@ const HomePage = () => {
 
     return (
         <StyledHomePage>
-            <TrendingMovies movies={movies.results} trendingTitle="Trending"/>
             <Movies shows={movies.results} title="Recommended for you"/>
             <PaginationContainer>
                 <StyledButton onClick={() => setPageIndex(pageIndex - 1)} disabled={pageIndex === 1 ? true : false}>Previous</StyledButton>

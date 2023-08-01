@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const StyledTvSeriesPage = styled.main`
+export const StyledTvSeriesPage = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;

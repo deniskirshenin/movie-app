@@ -5,13 +5,12 @@ export const MoviesPosterColumn = styled.img`
     border-radius: 5px;
     margin: 0.5rem;
     width: 100%;
-    height: auto;
+    height: 100%;
     transition: all ease-out 0.2s;
-    object-fit: fill;
+    object-fit: cover;
     filter: brightness(0.6);
 
     &:hover {
-        transform: scale(1.1);
         filter: brightness(1);
         transition: all ease-out 0.2s;
     }

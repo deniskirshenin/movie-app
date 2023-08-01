@@ -15,7 +15,7 @@ const MovieCard = (show) => {
         <MovieInformationContainerColumn>
             {show.backdrop_path ? 
             (<MoviesPosterColumn
-            src={`https://image.tmdb.org/t/p/original${show.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w440_and_h660_face${show.backdrop_path}`}
             alt={show.title}
             />) : (
                 <MoviesPosterColumn

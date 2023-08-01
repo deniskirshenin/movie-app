@@ -1,6 +1,6 @@
 import HomePage from './components/pages/home-page/home-page';
 import MoviesPage from './components/pages/movies-page/movies-page';
-import TvSeriesPage from './components/pages/tv-series-page/tv-series-page';
+import TvSeriesPage from './components/pages/top-rated-page/top-rated-page';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AppRoute } from './const';
 import PageWrapper from './components/layout/page-wrapper/page-wrapper';

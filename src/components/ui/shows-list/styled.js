@@ -13,8 +13,8 @@ export const StyledShowsList = styled.div`
     }
 
     @media (min-width: 1200px) {
-        grid-template-columns: repeat(4, 1fr);
-        column-gap: 40px;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 40px;
         padding: 36px;
     }
 `;
