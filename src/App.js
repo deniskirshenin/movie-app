@@ -5,25 +5,26 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AppRoute } from './const';
 import PageWrapper from './components/layout/page-wrapper/page-wrapper';
 import SearchPage from './components/pages/search-page/search-page';
-import BookmarkPage from './components/pages/bookmarked-page/bookmarked-page';
-import { GlobalProvider } from './contexts/GlobalState';
+import { GlobalStyle } from './styles';
+import LuckyPage from './components/pages/lucky-page/lucky-page';
 
 function App() {
   return (
-      <GlobalProvider>
-      <Router>
-        <Routes>
-          <Route path={AppRoute.MAIN} element={<PageWrapper />}>
-            <Route index path={AppRoute.MAIN} element={<HomePage />}/>
-            <Route path={AppRoute.HOME} element={<HomePage />}/>
-            <Route path={AppRoute.MOVIES} element={<MoviesPage />}/>
-            <Route path={AppRoute.TVSERIES} element={<TvSeriesPage />} />
-            <Route path={AppRoute.BOOKMARK} element={<BookmarkPage />} />
-            <Route path={AppRoute.SEARCH} element={<SearchPage/>} />
-          </Route>
-        </Routes>
-      </Router>
-      </GlobalProvider>
+    <>
+    <GlobalStyle />
+        <Router>
+          <Routes>
+            <Route path={AppRoute.MAIN} element={<PageWrapper />}>
+              <Route index path={AppRoute.MAIN} element={<HomePage />}/>
+              <Route path={AppRoute.HOME} element={<HomePage />}/>
+              <Route path={AppRoute.MOVIES} element={<MoviesPage />}/>
+              <Route path={AppRoute.TVSERIES} element={<TvSeriesPage />} />
+              <Route path={AppRoute.LUCKY} element={<LuckyPage/>} />
+              <Route path={AppRoute.SEARCH} element={<SearchPage/>} />
+            </Route>
+          </Routes>
+        </Router>
+    </>
   );
 }
 

@@ -1,39 +1,25 @@
 import { styled } from "styled-components";
-import { StyledBookmarkButton } from "../bookmark-button/styled";
 
 export const MoviesPosterColumn = styled.img`
     border-radius: 5px;
-    margin: 0.5rem;
     width: 100%;
     height: 100%;
-    transition: all ease-out 0.2s;
     object-fit: cover;
-    filter: brightness(0.6);
-
-    &:hover {
-        filter: brightness(1);
-        transition: all ease-out 0.2s;
-    }
 `;
 
 export const MovieInformationContainerColumn = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 164px;
-
-    @media (min-width: 768px) {
-        width: 220px;
-    };
-
-    @media (min-width: 1200px) {
-        width: 280px;
-    };
+    width: 100%;
+    height: fit-content;
+    margin: 0 auto;
 `;
 
 export const MovieInformationTextColumn = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 4px;
     color: #FFFFFF;
     padding: 10px;
 `;
@@ -49,54 +35,26 @@ export const MovieYearColumn = styled.span`
     width: max-content;
     margin-right: 10px;
     opacity: 0.75;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 `;
 
 export const MovieVoteColumn = styled.span`
     display: inline-block;
     opacity: 0.75;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 `;
 
 export const MovieNameColumn = styled.span`
     display: inline-block;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 19px;
-`;
-
-export const MovieBookmarkButtonAdd = styled(StyledBookmarkButton)`
-    position: absolute;
-    left: 130px;
-    top: 16px;
-
-    &:hover {
-        background-color: #fff;
-        path {
-            stroke: #10141E;
-            fill: #10141E;
-        }
-    }
-
-    @media (min-width: 768px) {
-        left: 180px;
-        top: 20px;
-    }
-
-    @media (min-width: 1200px) {
-        left: 240px;
-    }
-`;
-
-export const MovieBookmarkButtonRemove = styled(StyledBookmarkButton)`
-    position: absolute;
-    left: 130px;
-    top: 16px;
-    background-color: #FC4747;
-
-    &:hover {
-        background-color: #fff;
-        path {
-            stroke: #10141E;
-            fill: #10141E;
-        }
-    }
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 `;

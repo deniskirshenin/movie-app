@@ -9,7 +9,7 @@ import { API_KEY } from "../../../api/api_key";
 
 const HomePage = () => {
     const [pageIndex, setPageIndex] = useState(1);
-    const page = `?page=${pageIndex}`;
+    const page = `?page=${pageIndex}&`;
     const url = URL + endpoints.popular + page + API_KEY;
     const { data: movies, error } = useSWR(url);
     console.log(movies);

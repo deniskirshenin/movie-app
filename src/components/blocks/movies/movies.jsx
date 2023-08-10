@@ -6,7 +6,7 @@ import ShowsList from "../../ui/shows-list/shows-list";
 const Movies = ({title, shows}) => {
     return (
         <MoviesContainer>
-            <Title as="h3" size={TitleSize.SMALL}>{title}</Title>
+            <Title as="h3" size={TitleSize.LARGE}>{title}</Title>
             <ShowsList shows={shows}/>
         </MoviesContainer>
     );

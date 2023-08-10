@@ -9,7 +9,7 @@ import { PaginationContainer, StyledButton } from "../../ui/pagination-button/st
 
 const TvSeriesPage = () => {
     const [pageIndex, setPageIndex] = useState(1);
-    const { data: topRated, error } = useApiRequest(endpoints.topRated, `?page=${pageIndex}`);
+    const { data: topRated, error } = useApiRequest(endpoints.topRated, `?page=${pageIndex}&`);
     console.log(topRated);
     
     if(error) return <h1>Something went wrong</h1>;
@@ -18,7 +18,7 @@ const TvSeriesPage = () => {
 
     return (
         <StyledTvSeriesPage>
-            <TopRated shows={topRated.results} title="TV Series" />
+            <TopRated shows={topRated.results} title="Classics All-time" />
             <PaginationContainer>
                 <StyledButton onClick={() => setPageIndex(pageIndex - 1)} disabled={pageIndex === 1 ? true : false}>Previous</StyledButton>
                 <StyledButton onClick={() => setPageIndex(pageIndex + 1)}>Next</StyledButton>

@@ -8,8 +8,8 @@ export const TitleSize = {
 
 const TitleSizeValue = {
     [TitleSize.LARGE]: {
-        fontSize: "40px",
-        lineHeight: "60px",
+        fontSize: "32px",
+        lineHeight: "36px",
         fontWeight: 400
     },
     [TitleSize.MEDIUM]: {
@@ -25,7 +25,7 @@ const TitleSizeValue = {
 };
 
 const Title = styled.h1`
-    padding: 0;
+    padding: 16px 16px 0 16px;
     margin: 0;
     color: #fff;
     ${(props) => {
@@ -36,6 +36,14 @@ const Title = styled.h1`
             font-weight: ${values.fontWeight};
         `;
     }}
+
+    @media (min-width: 768px) {
+        padding: 25px 25px 0 25px;
+    }
+
+    @media (min-width: 1200px) {
+        padding: 32px 36px 0 36px;
+    }
 `;
 
 export default Title;

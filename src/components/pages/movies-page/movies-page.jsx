@@ -9,7 +9,7 @@ import { PaginationContainer, StyledButton } from "../../ui/pagination-button/st
 
 const MoviesPage = () => {
     const [pageIndex, setPageIndex] = useState(1);
-    const page = `?page=${pageIndex}`;
+    const page = `?page=${pageIndex}&`;
     const url = URL + endpoints.movies + page + API_KEY;
     const { data: movies, error } = useSWR(url);
     console.log(movies);
