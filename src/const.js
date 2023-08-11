@@ -4,5 +4,6 @@ export const AppRoute = {
     MOVIES: "/movies",
     TVSERIES: "/tv-series",
     SEARCH: "/search",
-    LUCKY: "/lucky"
+    LUCKY: "/lucky",
+    DETAILS: "/movie/:movieID"
 }

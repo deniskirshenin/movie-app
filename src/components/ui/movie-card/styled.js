@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 export const MoviesPosterColumn = styled.img`
@@ -7,13 +8,15 @@ export const MoviesPosterColumn = styled.img`
     object-fit: cover;
 `;
 
-export const MovieInformationContainerColumn = styled.div`
+export const MovieInformationContainer = styled(Link)`
     position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: fit-content;
     margin: 0 auto;
+    color: #fff;
+    text-decoration: none;
 `;
 
 export const MovieInformationTextColumn = styled.div`

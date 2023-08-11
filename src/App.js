@@ -7,6 +7,7 @@ import PageWrapper from './components/layout/page-wrapper/page-wrapper';
 import SearchPage from './components/pages/search-page/search-page';
 import { GlobalStyle } from './styles';
 import LuckyPage from './components/pages/lucky-page/lucky-page';
+import MovieFullCardPage from './components/pages/movie-full-card-page/movie-full-card-page';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path={AppRoute.TVSERIES} element={<TvSeriesPage />} />
               <Route path={AppRoute.LUCKY} element={<LuckyPage/>} />
               <Route path={AppRoute.SEARCH} element={<SearchPage/>} />
+              <Route path={AppRoute.DETAILS} element={<MovieFullCardPage />} />
             </Route>
           </Routes>
         </Router>

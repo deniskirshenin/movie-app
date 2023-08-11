@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyledLuckyPage } from "./styled";
+import { LuckyButton, StyledLuckyPage, TryAgain } from "./styled";
 import { URL } from "../../../api/api";
 
 import useSWR from "swr";
@@ -22,8 +22,15 @@ const LuckyPage = () => {
 
     return (
         <StyledLuckyPage>
-            <button onClick={handleClick}>watch something</button>
-            <MovieCardFull key={movieInfo.id} {...movieInfo} />
+            <LuckyButton onClick={handleClick}>What to watch</LuckyButton>
+            {movieInfo.id ? (
+                <MovieCardFull key={movieInfo.id} {...movieInfo} />
+            ) : (
+                <TryAgain>
+                    <LuckyButton onClick={handleClick}>Try again</LuckyButton>
+                </TryAgain>
+            )}
+            
         </StyledLuckyPage>
     );
 };

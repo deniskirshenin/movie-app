@@ -1,23 +1,22 @@
 import React from "react";
-import { Content, CountryInfo, CreditsImage, CreditsItem, CreditsList, DescriptionDetail, DescriptionTitle, DetailWrapper, Image, ImageWrapper, List, ListItem, MainInfo, MovieOverview, ProductionInfo, StyledMovieCard, SubtitleWrapper, Tagline } from "./styled";
-import Title, { TitleSize } from "../title/title";
+import { Content, CountryInfo, CreditsDescription, CreditsDetail, CreditsDetailList, CreditsImage, CreditsItem, CreditsList, DescriptionDetail, DescriptionTitle, DetailWrapper, Image, ImageWrapper, List, ListItem, MainContent, MainInfo, MovieOverview, StyledMovieCard, StyledTitle, Subtitle, SubtitleWrapper, Tagline, TextContent } from "./styled";
+import { TitleSize } from "../title/title";
 import { renderYear } from "../../../utils/utils";
+import noImage from "../../../assets/no-image.png";
+import MovieCard from "../movie-card/movie-card";
 
 const MovieCardFull = (movie) => {
     return (
         <StyledMovieCard>
-            <Content>
+            <MainContent>
                 <ImageWrapper>
                     <Image src={`https://image.tmdb.org/t/p/w440_and_h660_face${movie.poster_path}`} alt={movie.title} />
                 </ImageWrapper>
                 <MainInfo>
-                    <Title as="h2" size={TitleSize.LARGE}>{movie.title}</Title>
-                    <Tagline>{movie.tagline}</Tagline>
+                    <StyledTitle as="h2" size={TitleSize.LARGE}>{movie.title}</StyledTitle>
+                    <Subtitle>{movie.original_title}</Subtitle>
+                    {movie.tagline && <Tagline>{movie.tagline}</Tagline>}
                     <SubtitleWrapper>
-                        <DetailWrapper>
-                            <DescriptionTitle>Original title:</DescriptionTitle>
-                            <DescriptionDetail>{movie.original_title}</DescriptionDetail>
-                        </DetailWrapper>
                         <DetailWrapper>
                             <DescriptionTitle>Rating:</DescriptionTitle>
                             <DescriptionDetail>{(movie.vote_average).toFixed(1)} / 10</DescriptionDetail>
@@ -26,8 +25,6 @@ const MovieCardFull = (movie) => {
                             <DescriptionTitle>Votes:</DescriptionTitle>
                             <DescriptionDetail>{movie.vote_count}</DescriptionDetail>
                         </DetailWrapper>
-                    </SubtitleWrapper>
-                    <ProductionInfo>
                         <DetailWrapper>
                             <DescriptionTitle>Year:</DescriptionTitle>
                             <DescriptionDetail>{renderYear(movie.release_date)}</DescriptionDetail>
@@ -36,7 +33,7 @@ const MovieCardFull = (movie) => {
                             <DescriptionTitle>Runtime:</DescriptionTitle>
                             <DescriptionDetail>{movie.runtime} min</DescriptionDetail>
                         </DetailWrapper>
-                    </ProductionInfo>
+                    </SubtitleWrapper>
                     <CountryInfo>
                         <DetailWrapper>
                             <DescriptionTitle>Country of origin:</DescriptionTitle>
@@ -71,37 +68,59 @@ const MovieCardFull = (movie) => {
                             </List>
                         </DescriptionDetail>
                     </DetailWrapper>
+                    <TextContent>
+                        <StyledTitle as="h3" size={TitleSize.MEDIUM}>Overview</StyledTitle>
+                        <MovieOverview>{movie.overview}</MovieOverview>
+                    </TextContent>
                 </MainInfo>
-            </Content>
-            <div>
-                <Title size={TitleSize.MEDIUM}>Overview</Title>
-                <MovieOverview>{movie.overview}</MovieOverview>
-            </div>
-            <div>
-                <h2>Crew</h2>
+            </MainContent>
+            <Content>
+                <StyledTitle as="h3" size={TitleSize.MEDIUM}>Crew</StyledTitle>
                 <CreditsList>
                     {movie.credits.crew.map((crew, index) => (
                         <CreditsItem key={index}>
-                            <CreditsImage src={`https://image.tmdb.org/t/p/w440_and_h660_face${crew.profile_path}`} alt={crew.name} />
-                            <h3>{crew.name}</h3>
-                            <h4>{crew.job}</h4>
+                            {crew.profile_path !== null ? 
+                                (<CreditsImage src={`https://image.tmdb.org/t/p/w440_and_h660_face${crew.profile_path}`} alt={crew.name} />) : (
+                                    <CreditsImage
+                                    src={noImage}
+                                    alt={crew.name}
+                                    />)}
+                            <CreditsDetailList>
+                                <CreditsDetail>{crew.name}</CreditsDetail>
+                                <CreditsDescription>{crew.job}</CreditsDescription>
+                            </CreditsDetailList>
                         </CreditsItem>
                     ))}
                 </CreditsList>
-            </div>
-            <div>
-                <h2>Main Cast</h2>
+            </Content>
+            <Content>
+                <StyledTitle as="h3" size={TitleSize.MEDIUM}>Main Cast</StyledTitle>
                 <CreditsList>
                     {movie.credits.cast.map((cast, index) => (
                         <CreditsItem key={index}>
-                            <CreditsImage src={`https://image.tmdb.org/t/p/w440_and_h660_face${cast.profile_path}`} alt={cast.name} />
-                            <h3>{cast.name}</h3>
-                            <h4>{cast.character}</h4>
+                            {cast.profile_path !== null ? 
+                                (<CreditsImage src={`https://image.tmdb.org/t/p/w440_and_h660_face${cast.profile_path}`} alt={cast.name} />) : (
+                                    <CreditsImage
+                                    src={noImage}
+                                    alt={cast.name}
+                                    />)}
+                            <CreditsDetailList>
+                                <CreditsDetail>{cast.name}</CreditsDetail>
+                                <CreditsDescription>{cast.character}</CreditsDescription>
+                            </CreditsDetailList>
                         </CreditsItem>)
                     )}
                 </CreditsList>
-                
-            </div>
+            </Content>
+            <Content>
+                <StyledTitle as="h3" size={TitleSize.MEDIUM}>Recommendations</StyledTitle>
+                <CreditsList>
+                    {movie.similar.results.map((similar, index) => (
+                        <MovieCard key={index} {...similar}/>
+                        )
+                    )}
+                </CreditsList>
+            </Content>
         </StyledMovieCard>
     );
 }
