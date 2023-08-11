@@ -19,7 +19,7 @@ const Nav = () => {
             <StyledLink to={AppRoute.TVSERIES}>
                 <TvSeries />
             </StyledLink>
-            <StyledLink to={AppRoute.BOOKMARK}>
+            <StyledLink to={AppRoute.LUCKY}>
                 <Bookmark />
             </StyledLink>
         </StyledNav>

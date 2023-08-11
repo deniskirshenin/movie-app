@@ -1,16 +1,15 @@
 import React from "react";
-import { MoviesTitle } from "../trending-movies/styled";
-import { TitleSize } from "../../ui/title/title";
+import Title, { TitleSize } from "../../ui/title/title";
 import { TvSeriesContainer } from "./styled";
 import ShowsList from "../../ui/shows-list/shows-list";
 
-const TvSeries = ({title, shows}) => {
+const TopRated = ({title, shows}) => {
     return (
         <TvSeriesContainer>
-            <MoviesTitle as="h3" size={TitleSize.SMALL}>{title}</MoviesTitle>
+            <Title as="h3" size={TitleSize.LARGE}>{title}</Title>
             <ShowsList shows={shows}/>
         </TvSeriesContainer>
     );
 };
 
-export default TvSeries;
+export default TopRated;

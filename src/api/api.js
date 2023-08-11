@@ -1,7 +1,7 @@
 export const URL = "https://api.themoviedb.org/3";
 
 export const endpoints = {
-    movies: "/discover/movie",
-    popular: "/movie/top_rated",
-    tvSeries: "/tv/top_rated",
+    movies: "/movie/upcoming",
+    popular: "/movie/popular",
+    topRated: "/movie/top_rated",
 };

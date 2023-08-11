@@ -1,13 +1,12 @@
 import React from "react";
-import { MoviesTitle } from "../trending-movies/styled";
-import { TitleSize } from "../../ui/title/title";
+import Title, { TitleSize } from "../../ui/title/title";
 import { NotFoundContainer } from "./styled";
 
 
 const NotFound = ({title}) => {
     return (
         <NotFoundContainer>
-            <MoviesTitle as="h3" size={TitleSize.SMALL}>{title}</MoviesTitle>
+            <Title as="h3" size={TitleSize.SMALL}>{title}</Title>
         </NotFoundContainer>
     );
 };

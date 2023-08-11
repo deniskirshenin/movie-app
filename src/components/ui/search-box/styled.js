@@ -9,6 +9,10 @@ export const SearchContainer = styled.div`
     padding: 24px 16px;
     background-color: #10141E;
     color: #fff;
+
+    @media (min-width: 768px) {
+        padding: 25px;
+    }
 `;
 
 export const SearchInput = styled.input`
