@@ -28,11 +28,13 @@ export const SearchInput = styled.input`
 
     &:hover {
         opacity: 1;
+        padding: 2px 2px 1px 2px;
         border-bottom: 1px solid #5A698F;
         caret-color: #fc4747;
     }
     &:focus {
         opacity: 1;
+        padding: 2px 2px 1px 2px;
         border-bottom: 1px solid #5A698F;
         outline: 0;
         caret-color: #fc4747;
