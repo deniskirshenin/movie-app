@@ -28,7 +28,7 @@ export const StyledButton = styled.button`
 export const PaginationContainer = styled.div`
     padding: 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: #191b26;
 `;

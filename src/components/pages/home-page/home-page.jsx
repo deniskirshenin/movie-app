@@ -1,31 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyledHomePage } from "./styled";
 import Movies from "../../blocks/movies/movies";
 import { PaginationContainer, StyledButton } from "../../ui/pagination-button/styled";
 import { URL, endpoints } from "../../../api/api";
-
-import useSWR from "swr";
+import useSWRInfinite from "swr/infinite"; // Import useSWRInfinite
 import { API_KEY } from "../../../api/api_key";
+import { fetcher } from "../../../index"; // Import the fetcher from index.js
 
 const HomePage = () => {
-    const [pageIndex, setPageIndex] = useState(1);
-    const page = `?page=${pageIndex}&`;
-    const url = URL + endpoints.popular + page + API_KEY;
-    const { data: movies, error } = useSWR(url);
-    console.log(movies);
+  const getKey = (pageIndex, previousPageData) => {
+    if (previousPageData && !previousPageData.results.length) return null; // No more data
+    return URL + endpoints.popular + `?page=${pageIndex + 1}&` + API_KEY; // Adjust the page index
+  };
+  const { data, error, size, setSize } = useSWRInfinite(getKey, fetcher);
 
-    if(error) return <h1>Something went wrong</h1>;
-    if(!movies) return <h1>Loading...</h1>;
+  const isLoading = !data && !error;
 
-    return (
-        <StyledHomePage>
-            <Movies shows={movies.results} title="Recommended for you"/>
-            <PaginationContainer>
-                <StyledButton onClick={() => setPageIndex(pageIndex - 1)} disabled={pageIndex === 1 ? true : false}>Previous</StyledButton>
-                <StyledButton onClick={() => setPageIndex(pageIndex + 1)}>Next</StyledButton>
-            </PaginationContainer>
-        </StyledHomePage>
-    );
+  const handleLoadMore = () => {
+    setSize(size + 1);
+  };
+
+  if (error) return <h1>Something went wrong</h1>;
+  if (isLoading) return <h1>Loading...</h1>;
+
+  const shows = data ? data.flatMap((page) => page.results) : [];
+
+  return (
+    <StyledHomePage>
+      <Movies shows={shows} title="Recommended for you" />
+      <PaginationContainer>
+        {/* Implement the "Load More" button to trigger loading more data */}
+        <StyledButton onClick={handleLoadMore}>Load More</StyledButton>
+      </PaginationContainer>
+    </StyledHomePage>
+  );
 };
 
 export default HomePage;

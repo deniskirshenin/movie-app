@@ -8,8 +8,8 @@ import MovieCard from "../movie-card/movie-card";
 const ShowsList = ({shows}) => {
     return (
         <StyledShowsList>
-            {shows.map((show) => (
-                <MovieCard key={show.id} {...show} />
+            {shows.map((show,index) => (
+                <MovieCard key={`${show.id}${index}`} {...show} />
             ))}
         </StyledShowsList>
     );

@@ -14,7 +14,7 @@ const MovieCardFull = (movie) => {
                 </ImageWrapper>
                 <MainInfo>
                     <StyledTitle as="h2" size={TitleSize.LARGE}>{movie.title}</StyledTitle>
-                    <Subtitle>{movie.original_title}</Subtitle>
+                    <Subtitle as="p">{movie.original_title}</Subtitle>
                     {movie.tagline && <Tagline>{movie.tagline}</Tagline>}
                     <SubtitleWrapper>
                         <DetailWrapper>
