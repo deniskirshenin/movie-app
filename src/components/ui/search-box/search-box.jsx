@@ -1,47 +1,41 @@
-import React, { useEffect, useState } from "react";
-import { SearchContainer, SearchIcon, SearchInput } from "./styled";
-import { Navigate } from "react-router-dom";
+import React, { useState } from "react";
+import { SearchButton, SearchContainer, SearchIcon, SearchInput } from "./styled";
+import useSWR from "swr";
+import { fetcher } from "../../..";
 
 const SearchBox = () => {
     const [searchValue, setSearchValue] = useState('')
-    const [shows, setShows] = useState([]);
 
-    const getShows = async (searchValue) => {
-		const url = `https://api.themoviedb.org/3/search/movie?api_key=add8c0cdbdcd6f1026ba6df9d6cef47d&query=${searchValue}`;
-
-		const response = await fetch(url);
-		const responseJson = await response.json();
-
-		if (responseJson.results) {
-			setShows(responseJson.results);
-		}
-	};
-
-    useEffect(() => {
-    getShows(searchValue);
-    }, [searchValue]);
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=add8c0cdbdcd6f1026ba6df9d6cef47d&query=${searchValue}`
 
     const handleChange = (evt) => {
         setSearchValue(evt.target.value);
     };
 
+    const { data: shows, error } = useSWR(
+        searchValue ? url : null,
+        fetcher,
+    )
+
+    console.log(shows);
+
+    const results = shows?.results || [];
+
     const searchPageData = {
-        title: `Found ${shows.length} results for ${searchValue}`, 
-        shows: shows
+        title: `Found ${results.length} results for ${searchValue}`, 
+        shows: results || []
     }
 
     return (
-        <>
-            <SearchContainer>
+        <SearchContainer>
             <SearchIcon />
             <SearchInput 
                 value={searchValue}
                 placeholder="Search for movies or TV series"
                 onChange={handleChange}
             />
-            </SearchContainer>
-            {(searchValue.length > 0) && (<Navigate to="/search" state={searchPageData} replace={true} />)}     
-        </>
+            {(searchValue.length > 0) && (<SearchButton to="/search" state={searchPageData}>Search</SearchButton>)}
+        </SearchContainer>
     );
 };
 

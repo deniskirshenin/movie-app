@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
+export const MovieItem = styled.li`
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+`;
+
 export const MoviesPosterColumn = styled.img`
     border-radius: 5px;
     width: 100%;
@@ -17,6 +23,11 @@ export const MovieInformationContainer = styled(Link)`
     margin: 0 auto;
     color: #fff;
     text-decoration: none;
+
+    &:hover {
+        transform: scale(1.1);
+        transition: all 0.3s ease-out;
+    }
 `;
 
 export const MovieInformationTextColumn = styled.div`
