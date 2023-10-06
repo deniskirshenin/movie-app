@@ -1,11 +1,12 @@
 import React from "react";
-import { MovieInfoColumn, MovieInformationContainer, MovieInformationTextColumn, MovieNameColumn, MovieVoteColumn, MovieYearColumn, MoviesPosterColumn } from "./styled";
+import { MovieInfoColumn, MovieInformationContainer, MovieInformationTextColumn, MovieItem, MovieNameColumn, MovieVoteColumn, MovieYearColumn, MoviesPosterColumn } from "./styled";
 import {renderYear} from "../../../utils/utils";
 import noImage from "../../../assets/no-image.png";
 
 const MovieCard = (show) => {
     return (
-        <MovieInformationContainer to={`/movie/${show.id}`}>
+        <MovieItem>
+            <MovieInformationContainer to={`/movie/${show.id}`}>
             {show.backdrop_path ? 
             (<MoviesPosterColumn
             src={`https://image.tmdb.org/t/p/w440_and_h660_face${show.poster_path}`}
@@ -22,7 +23,8 @@ const MovieCard = (show) => {
                 </MovieInfoColumn>
                 <MovieNameColumn>{show.title}</MovieNameColumn>
             </MovieInformationTextColumn>
-        </MovieInformationContainer>
+            </MovieInformationContainer>
+        </MovieItem>
     );
 };
 

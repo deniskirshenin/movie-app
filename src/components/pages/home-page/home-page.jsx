@@ -3,9 +3,9 @@ import { StyledHomePage } from "./styled";
 import Movies from "../../blocks/movies/movies";
 import { PaginationContainer, StyledButton } from "../../ui/pagination-button/styled";
 import { URL, endpoints } from "../../../api/api";
-import useSWRInfinite from "swr/infinite"; // Import useSWRInfinite
+import useSWRInfinite from "swr/infinite";
 import { API_KEY } from "../../../api/api_key";
-import { fetcher } from "../../../index"; // Import the fetcher from index.js
+import { fetcher } from "../../../index";
 
 const HomePage = () => {
   const getKey = (pageIndex, previousPageData) => {

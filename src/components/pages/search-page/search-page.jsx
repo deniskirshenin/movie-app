@@ -9,6 +9,7 @@ const SearchPage = () => {
     return (
         <StyledSearchPage>
             <Movies shows={propsData.shows} title={propsData.title}/>
+            
         </StyledSearchPage>
     );
 };

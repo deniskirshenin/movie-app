@@ -1,6 +1,9 @@
 import { styled } from "styled-components";
 
-export const StyledShowsList = styled.div`
+export const StyledShowsList = styled.ul`
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(164px, 1fr));
     column-gap: 15px;
