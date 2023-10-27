@@ -1,40 +1,45 @@
-import React from "react";
-import { StyledMoviesPage } from "./styled";
-import Movies from "../../blocks/movies/movies";
-import { URL, endpoints } from "../../../api/api";
-import { API_KEY } from "../../../api/api_key";
-import { PaginationContainer, StyledButton } from "../../ui/pagination-button/styled";
-import useSWRInfinite from "swr/infinite";
-import { fetcher } from "../../..";
+// import React, { useEffect, useState } from "react";
+// import { StyledMoviesPage } from "./styled";
+// import Movies from "../../blocks/movies/movies";
+// import { fetchPopularMovies } from "../../../actions/popularMovies";
+// import { connect } from "react-redux";
 
+// const MoviesPage = ({ data, loading, currentPage, totalPages, apiKey, dispatch }) => {
+//     const [isFetching, setIsFetching] = useState(false);
 
-const MoviesPage = () => {
-    const getKey = (pageIndex, previousPageData) => {
-        if (previousPageData && !previousPageData.results.length) return null; // No more data
-        return URL + endpoints.movies + `?page=${pageIndex + 1}&` + API_KEY; // Adjust the page index
-      };
-      const { data, error, size, setSize } = useSWRInfinite(getKey, fetcher);
-    
-      const isLoading = !data && !error;
-    
-      const handleLoadMore = () => {
-        setSize(size + 1);
-      };
-    
-      if (error) return <h1>Something went wrong</h1>;
-      if (isLoading) return <h1>Loading...</h1>;
-    
-      const movies = data ? data.flatMap((page) => page.results) : [];
+//     useEffect(() => {
+//         const handleScroll = () => {
+//             if (
+//                 window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 200 &&
+//                 !isFetching
+//             ) {
+//                 setIsFetching(true);
+//             }
+//         };
 
-    
-    return (
-        <StyledMoviesPage>
-            <Movies shows={movies} title="Movies" />
-            <PaginationContainer>
-                <StyledButton onClick={handleLoadMore}>Load More</StyledButton>
-            </PaginationContainer>
-        </StyledMoviesPage>
-    );
-};
+//         window.addEventListener('scroll', handleScroll);
+//         return () => window.removeEventListener('scroll', handleScroll);
+//     }, [isFetching]);
 
-export default MoviesPage;
+//     useEffect(() => {
+//         if (isFetching && currentPage < totalPages && !loading) {
+//             dispatch(fetchPopularMovies(apiKey, currentPage + 1));
+//             setIsFetching(false);
+//         }
+//     }, [isFetching, currentPage, totalPages, loading, apiKey, dispatch]);
+
+//     return (
+//         <StyledMoviesPage>
+//             <Movies shows={data} title="Movies" />
+//         </StyledMoviesPage>
+//     );
+// };
+
+// const mapStateToProps = (state) => ({
+//     data: state.popularMovies.data, // Use data instead of loading
+//     loading: state.popularMovies.loading,
+//     currentPage: state.popularMovies.currentPage,
+//     totalPages: state.popularMovies.totalPages,
+// });
+
+// export default connect(mapStateToProps)(MoviesPage);

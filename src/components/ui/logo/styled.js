@@ -5,8 +5,7 @@ export const StyledLogo = styled(NavLink)`
     display: flex;
     align-items: center;
     text-decoration: none;
-    width: 25px;
-    height: 20px;
+    padding: 0 0 0 40px;
 
     &:hover path{
         fill: green;

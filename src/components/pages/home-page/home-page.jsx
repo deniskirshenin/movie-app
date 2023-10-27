@@ -1,39 +1,46 @@
 import React from "react";
 import { StyledHomePage } from "./styled";
-import Movies from "../../blocks/movies/movies";
-import { PaginationContainer, StyledButton } from "../../ui/pagination-button/styled";
-import { URL, endpoints } from "../../../api/api";
-import useSWRInfinite from "swr/infinite";
-import { API_KEY } from "../../../api/api_key";
-import { fetcher } from "../../../index";
+import Banner from "../../blocks/banner/banner";
+import { useGetPopularMoviesQuery, useGetTopRatedMoviesQuery, useGetNowPlayingMoviesQuery, useGetUpcomingMoviesQuery, useGetMovieGenresQuery, useGetTVGenresQuery } from "../../../features/api/apiSlice";
+import Row from "../../ui/row/row";
+import RowGenre from "../../ui/row-genre/row-genre";
 
 const HomePage = () => {
-  const getKey = (pageIndex, previousPageData) => {
-    if (previousPageData && !previousPageData.results.length) return null; // No more data
-    return URL + endpoints.popular + `?page=${pageIndex + 1}&` + API_KEY; // Adjust the page index
-  };
-  const { data, error, size, setSize } = useSWRInfinite(getKey, fetcher);
+  const {
+    data: upcomingMovies,
+    isLoading: upcomingLoading,
+    isSuccess: upcomingSuccess,
+    isError: upcomingError,
+    error: upcomingErrorDetails
+  } = useGetUpcomingMoviesQuery();
+  const { data: nowPlayingMovies, isLoading: nowPlayingLoading, isSuccess: nowPlayingSuccess, isError: nowPlayingError, error: nowPlayingErrorDetails } = useGetNowPlayingMoviesQuery();
+  const { data: popularMovies, isLoading: popularLoading, isSuccess: popularSuccess, isError: popularError, error: popularErrorDetails } = useGetPopularMoviesQuery();
+  const { data: topRatedMovies, isLoading: topRatedLoading, isSuccess: topRatedSuccess, isError: topRatedError, error: topRatedErrorDetails } = useGetTopRatedMoviesQuery();
+  const { data: movieGenres } = useGetMovieGenresQuery();
+  const { data: tvGenres } = useGetTVGenresQuery();
 
-  const isLoading = !data && !error;
-
-  const handleLoadMore = () => {
-    setSize(size + 1);
-  };
-
-  if (error) return <h1>Something went wrong</h1>;
-  if (isLoading) return <h1>Loading...</h1>;
-
-  const shows = data ? data.flatMap((page) => page.results) : [];
 
   return (
     <StyledHomePage>
-      <Movies shows={shows} title="Recommended for you" />
-      <PaginationContainer>
-        {/* Implement the "Load More" button to trigger loading more data */}
-        <StyledButton onClick={handleLoadMore}>Load More</StyledButton>
-      </PaginationContainer>
+      <Banner />
+      {renderRow("Upcoming", upcomingMovies, upcomingLoading, upcomingSuccess, upcomingError, upcomingErrorDetails)}
+      {renderRow("Now Playing", nowPlayingMovies, nowPlayingLoading, nowPlayingSuccess, nowPlayingError, nowPlayingErrorDetails)}
+      {renderRow("Popular", popularMovies, popularLoading, popularSuccess, popularError, popularErrorDetails)}
+      {renderRow("Top Rated", topRatedMovies, topRatedLoading, topRatedSuccess, topRatedError, topRatedErrorDetails)}
+      <RowGenre title="Browse Movies" genreList={movieGenres} />;
+      <RowGenre title="Browse TV series" genreList={tvGenres} />;
     </StyledHomePage>
   );
 };
 
 export default HomePage;
+
+const renderRow = (title, movies, isLoading, isSuccess, isError, error, collectionId) => {
+  if (isLoading) {
+    return <div>loading</div>;
+  } else if (isSuccess) {
+    return <Row title={title} movies={movies.results} collectionId={collectionId} />;
+  } else if (isError) {
+    return <div>Error: {error.toString()}</div>;
+  }
+};

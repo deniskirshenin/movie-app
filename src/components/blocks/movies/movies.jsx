@@ -1,7 +1,7 @@
 import React from "react";
 import Title, { TitleSize } from "../../ui/title/title";
 import { MoviesContainer } from "./styled";
-import ShowsList from "../../ui/shows-list/shows-list";
+import ShowsList from "../../ui/shows-grid/shows-grid";
 
 const Movies = ({title, shows}) => {
     return (

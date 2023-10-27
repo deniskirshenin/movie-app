@@ -5,14 +5,16 @@ export const StyledNav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 20px;
 `;
 
 export const StyledLink = styled(NavLink)`
     display: flex;
+    color: #fff;
+    font-size: 16px;
+    line-height: 32px;
     align-items: center;
     text-decoration: none;
-    min-width: 16px;
-    min-height: 16px;
     margin-right: 24px;
 
     &:hover path{

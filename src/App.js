@@ -8,24 +8,26 @@ import SearchPage from './components/pages/search-page/search-page';
 import { GlobalStyle } from './styles';
 import LuckyPage from './components/pages/lucky-page/lucky-page';
 import MovieFullCardPage from './components/pages/movie-full-card-page/movie-full-card-page';
+import CollectionPage from './components/pages/collection-page/collection-page';
 
 function App() {
   return (
     <>
     <GlobalStyle />
         <Router>
-          <Routes>
-            <Route path={AppRoute.MAIN} element={<PageWrapper />}>
-              <Route index path={AppRoute.MAIN} element={<HomePage />}/>
-              <Route path={AppRoute.HOME} element={<HomePage />}/>
-              <Route path={AppRoute.MOVIES} element={<MoviesPage />}/>
-              <Route path={AppRoute.TVSERIES} element={<TvSeriesPage />} />
-              <Route path={AppRoute.LUCKY} element={<LuckyPage/>} />
-              <Route path={AppRoute.SEARCH} element={<SearchPage/>} />
-              <Route path={AppRoute.DETAILS} element={<MovieFullCardPage />} />
-            </Route>
-          </Routes>
-        </Router>
+            <Routes>
+              <Route path={AppRoute.MAIN} element={<PageWrapper />}>
+                <Route index path={AppRoute.MAIN} element={<HomePage />}/>
+                <Route path={AppRoute.HOME} element={<HomePage />}/>
+                <Route path={AppRoute.MOVIES} element={<MoviesPage />}/>
+                <Route path={AppRoute.TVSERIES} element={<TvSeriesPage />} />
+                <Route path={AppRoute.LUCKY} element={<LuckyPage/>} />
+                <Route path={AppRoute.SEARCH} element={<SearchPage/>} />
+                <Route path={AppRoute.DETAILS} element={<MovieFullCardPage />} />
+                <Route path={AppRoute.LIST} element={<CollectionPage />} />
+              </Route>
+            </Routes>
+          </Router>
     </>
   );
 }
