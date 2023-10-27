@@ -5,7 +5,7 @@ import logo from '../../../assets/logo-no-background.png';
 const Logo = () => {
     return (
         <StyledLogo>
-            <img src={logo} alt="" width={150} height={50}/>
+            <img src={logo} alt="" width={250} height={20}/>
         </StyledLogo>
     );
 };

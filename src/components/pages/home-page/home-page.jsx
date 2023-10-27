@@ -3,7 +3,9 @@ import { StyledHomePage } from "./styled";
 import Banner from "../../blocks/banner/banner";
 import { useGetPopularMoviesQuery, useGetTopRatedMoviesQuery, useGetNowPlayingMoviesQuery, useGetUpcomingMoviesQuery, useGetMovieGenresQuery, useGetTVGenresQuery } from "../../../features/api/apiSlice";
 import Row from "../../ui/row/row";
-import RowGenre from "../../ui/row-genre/row-genre";
+import RowGenre from "../../ui/row-movies-genre/row-movies-genre";
+import RowMovieGenre from "../../ui/row-movies-genre/row-movies-genre";
+import RowTvSeriesGenre from "../../ui/row-tv-series-genre/row-tv-series-genre";
 
 const HomePage = () => {
   const {
@@ -27,8 +29,8 @@ const HomePage = () => {
       {renderRow("Now Playing", nowPlayingMovies, nowPlayingLoading, nowPlayingSuccess, nowPlayingError, nowPlayingErrorDetails)}
       {renderRow("Popular", popularMovies, popularLoading, popularSuccess, popularError, popularErrorDetails)}
       {renderRow("Top Rated", topRatedMovies, topRatedLoading, topRatedSuccess, topRatedError, topRatedErrorDetails)}
-      <RowGenre title="Browse Movies" genreList={movieGenres} />;
-      <RowGenre title="Browse TV series" genreList={tvGenres} />;
+      <RowMovieGenre title="Browse Movies" genreList={movieGenres} />;
+      <RowTvSeriesGenre title="Browse TV series" genreList={tvGenres} />;
     </StyledHomePage>
   );
 };

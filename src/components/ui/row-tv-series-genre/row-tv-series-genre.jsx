@@ -43,7 +43,7 @@ export const RowHeaderLink = styled(Link)`
     text-decoration: none;
 `;
 
-function RowGenre({ title, genreList }) {
+function RowTvSeriesGenre({ title, genreList }) {
     return (
         <StyledRow>
             <RowHeader>
@@ -54,7 +54,7 @@ function RowGenre({ title, genreList }) {
             </RowHeader>
             <GridRow>
                 {genreList && genreList.genres.map((genre) => (
-                    <RowPosterLink key={genre.id} to={`/collection/${genre.id}`}>
+                    <RowPosterLink key={genre.id} to={`/tv-series-genres/${genre.id}`}>
                             {genre.name}
                     </RowPosterLink> 
                 ))}
@@ -63,4 +63,4 @@ function RowGenre({ title, genreList }) {
     );
 };
 
-export default RowGenre;
+export default RowTvSeriesGenre;

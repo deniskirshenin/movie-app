@@ -10,6 +10,8 @@ export const AppRoute = {
     SEARCH: "/search",
     LUCKY: "/lucky",
     DETAILS: "/movie/:movieID",
-    LIST: "/collection/:collectionId"
+    LIST: "/collection/:collectionId",
+    MOVIEGENRE: "/movies-genres/:movieGenreId",
+    TVSERIESGENRE: "tv-series-genres/:tvSeriesGenreId"
 }
 

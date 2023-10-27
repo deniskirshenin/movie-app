@@ -9,6 +9,8 @@ import { GlobalStyle } from './styles';
 import LuckyPage from './components/pages/lucky-page/lucky-page';
 import MovieFullCardPage from './components/pages/movie-full-card-page/movie-full-card-page';
 import CollectionPage from './components/pages/collection-page/collection-page';
+import MoviesGenrePage from './components/pages/movies-genre-page/movies-genre-page';
+import TvSeriesGenrePage from './components/pages/tv-series-genre-page/tv-series-genre-page';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
                 <Route path={AppRoute.SEARCH} element={<SearchPage/>} />
                 <Route path={AppRoute.DETAILS} element={<MovieFullCardPage />} />
                 <Route path={AppRoute.LIST} element={<CollectionPage />} />
+                <Route path={AppRoute.MOVIEGENRE} element={<MoviesGenrePage />} />
+                <Route path={AppRoute.TVSERIESGENRE} element={<TvSeriesGenrePage/>} />
               </Route>
             </Routes>
           </Router>

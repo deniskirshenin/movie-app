@@ -49,6 +49,12 @@ export const apiSlice = createApi({
         }),
         getMoviesByCollection: builder.query({
             query: (collectionId) => `/movie/${collectionId}`
+        }),
+        getMoviesByGenre: builder.query({
+            query: (movieGenreId) => `/discover/movie?with_genres=${movieGenreId}`
+        }),
+        getTvSeriesByGenre: builder.query({
+            query: (tvSeriesGenreId) => `/discover/tv?with_genres=${tvSeriesGenreId}`
         })
     })
 })
@@ -66,5 +72,7 @@ export const {
     useGetMovieQuery,
     useGetMoviesByCollectionQuery,
     useGetMovieGenresQuery,
-    useGetTVGenresQuery
+    useGetTVGenresQuery,
+    useGetMoviesByGenreQuery,
+    useGetTvSeriesByGenreQuery
 } = apiSlice;

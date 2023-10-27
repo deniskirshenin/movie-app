@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const StyledHeader = styled.header`
-    height: 90px;
+    height: 72px;
     background-color: ${(props) => props.show ? '#000' : 'transparent'};
     position: fixed;
     top: 0;

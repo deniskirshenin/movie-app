@@ -15,13 +15,11 @@ export const StyledLink = styled(NavLink)`
     line-height: 32px;
     align-items: center;
     text-decoration: none;
-    margin-right: 24px;
+    color: #c4d3c3;
 
-    &:hover path{
-        fill: #fff;
-    }
+    transition: all 0.5s ease-in-out;
 
-    &.active path {
-        fill: crimson;
+    &:hover {
+        color: #9400FF;
     }
 `;
