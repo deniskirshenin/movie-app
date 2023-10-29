@@ -24,9 +24,10 @@ const HomePage = () => {
   const { data: airingToday, isLoading: airingTodayLoading, isSuccess: airingTodaySuccess, isError: airingTodayError, error: airingTodayErrorDetails } = useGetAiringTodayQuery();
   const { data: onTheAir, isLoading: onTheAirLoading, isSuccess: onTheAirSuccess, isError: onTheAirError, error: onTheAirErrorDetails } = useGetOnTheAirQuery();
 
+  console.log(upcomingMovies);
   return (
     <StyledHomePage>
-      <Banner movie={popularMovies.results[1]}/>
+      <Banner movie={upcomingMovies?.results[0]}/>
       {renderRow("Trending", trendingMovies, trendingLoading, trendingSuccess, trendingError, trendingErrorDetails)}
       {renderRow("Watch now TV Series", trendingTvSeries, trendingTvLoading, trendingTvSuccess, trendingTvError, trendingTvErrorDetails)}
       {renderRow("Upcoming", upcomingMovies, upcomingLoading, upcomingSuccess, upcomingError, upcomingErrorDetails)}
