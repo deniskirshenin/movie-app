@@ -171,7 +171,7 @@ function Banner({movie}) {
             
             <BannerDescription>{truncate(movie?.overview, 150)}</BannerDescription>
             <BannerButtons>
-                <BannerLink to={`/movie/${movie.id}`}><MdPlayArrow />Watch Trailer</BannerLink>
+                <BannerLink to={`/movie/${movie?.id}`}><MdPlayArrow />Watch Trailer</BannerLink>
                 <BannerLink>Add to My List<AiOutlinePlus /></BannerLink>
             </BannerButtons>
         </BannerContents>
