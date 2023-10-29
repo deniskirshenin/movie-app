@@ -26,7 +26,7 @@ const HomePage = () => {
 
   return (
     <StyledHomePage>
-      <Banner />
+      <Banner movie={popularMovies.results[1]}/>
       {renderRow("Trending", trendingMovies, trendingLoading, trendingSuccess, trendingError, trendingErrorDetails)}
       {renderRow("Watch now TV Series", trendingTvSeries, trendingTvLoading, trendingTvSuccess, trendingTvError, trendingTvErrorDetails)}
       {renderRow("Upcoming", upcomingMovies, upcomingLoading, upcomingSuccess, upcomingError, upcomingErrorDetails)}
