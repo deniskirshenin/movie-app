@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { MdArrowForwardIos } from "react-icons/md";
 import { GridRow } from '../../grid/gridRow';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export const StyledRow = styled.div`
     color: #fff;
@@ -34,7 +35,7 @@ export const RowPosterLink = styled(Link)`
     }
 `;
 
-export const RowPoster = styled.img`
+export const RowPoster = styled(LazyLoadImage)`
     object-fit: cover;
     width: 100%;
 `;
@@ -83,6 +84,7 @@ function Row({ title, movies }) {
                             <RowPoster
                                 key={movie.id}
                                 src={`${imageUrl}${movie.backdrop_path}`} alt={movie.name}
+                                effect="blur"
                             />
                             <RowTitle>
                                 {movie.original_title || movie.original_name}

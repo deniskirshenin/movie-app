@@ -1,3 +1,4 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
@@ -7,7 +8,7 @@ export const MovieItem = styled.li`
     list-style-type: none;
 `;
 
-export const MoviesPosterColumn = styled.img`
+export const MoviesPosterColumn = styled(LazyLoadImage)`
     border-radius: 5px;
     width: 100%;
     height: 100%;

@@ -11,6 +11,7 @@ const MovieCard = (show) => {
             (<MoviesPosterColumn
             src={`https://image.tmdb.org/t/p/w440_and_h660_face${show.poster_path}`}
             alt={show.title}
+            effect="blur"
             />) : (
                 <MoviesPosterColumn
                 src={noImage}
