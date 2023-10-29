@@ -1,5 +1,5 @@
 export const baseUrl = "https://api.themoviedb.org/3";
-export const imageUrl  = "https://image.tmdb.org/t/p/original/";
+export const imageUrl  = "https://image.tmdb.org/t/p/w780/";
 export const API_KEY = "add8c0cdbdcd6f1026ba6df9d6cef47d";
 
 export const AppRoute = {
