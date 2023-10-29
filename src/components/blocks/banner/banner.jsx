@@ -1,11 +1,9 @@
-import axios from '../../../axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import requests from '../../../Requests';
 import { imageUrl } from '../../../const';
 import { Link } from 'react-router-dom';
 import { MdArrowForwardIos, MdPlayArrow } from 'react-icons/md';
-import { AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlinePlus } from 'react-icons/ai';
 
 export const BannerSection = styled.section`
     position: relative;
@@ -154,19 +152,7 @@ export const TitleLink = styled(Link)`
     text-decoration: none;
 `;
 
-function Banner() {
-    const [movie, setMovie] = useState([]);
-
-    useEffect(() => {
-        async function fetchData() {
-            const request = await axios.get(requests.fetchPopular);
-            const randomIndex = Math.floor(Math.random() * request.data.results.length);
-            setMovie(request.data.results[randomIndex]);    
-        }
-
-        fetchData();
-    }, []);
-
+function Banner({movie}) {
     function truncate(string, n) {
         return (string?.length > n) ? string.substring(0, n - 1) + '...' : string;
     }
