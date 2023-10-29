@@ -6,4 +6,5 @@ export const MoviesContainer = styled.article`
     background-color: #191b26;
     color: #fff;
     height: 100%;
+    padding: 80px 0 0 0;
 `;

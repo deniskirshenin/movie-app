@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyledHeader } from "./styled";
-import Logo from "../../ui/logo/logo";
 import Nav from "../nav/nav";
-import { AvatarContainer } from "../../ui/avatar/styled";
 
 
 const Header = () => {
+    const [show, handleShow] = useState(false);
+    const transitionNavBar = () => {
+        if(window.scrollY > 30) {
+            handleShow(true);
+        } else {
+            handleShow(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', transitionNavBar);
+        return () => window.removeEventListener('scroll', transitionNavBar);
+    }, []);
+
     return (
-        <StyledHeader>
-            <Logo />
+        <StyledHeader show={show}>
             <Nav />
-            <AvatarContainer />
         </StyledHeader>
     );
 };

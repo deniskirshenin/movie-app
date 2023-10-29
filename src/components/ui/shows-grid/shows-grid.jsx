@@ -5,7 +5,7 @@ import MovieCard from "../movie-card/movie-card";
 
 
 
-const ShowsList = ({shows}) => {
+const ShowsGrid = ({shows}) => {
     return (
         <StyledShowsList>
             {shows.map((show,index) => (
@@ -15,4 +15,4 @@ const ShowsList = ({shows}) => {
     );
 };
 
-export default ShowsList;
+export default ShowsGrid;

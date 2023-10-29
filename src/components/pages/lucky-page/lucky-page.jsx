@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { LuckyButton, StyledLuckyPage, TryAgain } from "./styled";
-import { URL } from "../../../api/api";
 
 import useSWR from "swr";
-import { API_KEY } from "../../../api/api_key";
+
 import MovieCardFull from "../../ui/movie-card-full/movie-card-full";
+import { API_KEY, baseUrl } from "../../../const";
 
 const LuckyPage = () => {
     const [movieID, setMovieID] = useState(203);
     const movieCard = `/movie/${movieID}?`;
-    const url = URL + movieCard + API_KEY + '&append_to_response=credits,videos,similar,watch/providers';
+    const url = baseUrl + movieCard + API_KEY + '&append_to_response=credits,videos,similar,watch/providers';
     const { data: movieInfo, error } = useSWR(url);
     console.log(movieInfo);
 
