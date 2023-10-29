@@ -5,7 +5,7 @@ export const StyledHeader = styled.header`
     background-color: ${(props) => props.show ? '#000' : 'transparent'};
     position: fixed;
     top: 0;
-    z-index: 2;
+    z-index: 3;
     width: 100%;
     box-sizing: border-box;
 

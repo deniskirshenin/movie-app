@@ -20,7 +20,6 @@ export const RowPosterLink = styled(Link)`
     color: #c4d4c3;
     padding: 50px;
     background-color: #DC343B;
-    border-radius: 12px;
 
     &:hover {
         transform: scale(1.08);

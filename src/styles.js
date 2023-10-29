@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   html {
     height: 100vh;
-    background-color: #0F0F0F;
+    background-color: #0b0c0f;
   }
 
   body,

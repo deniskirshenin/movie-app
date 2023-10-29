@@ -1,3 +1,3 @@
 export const defaultTheme = {
-    fontFamily: '"Outfit", "Arial", sans-serif',
+    fontFamily: '"Space Grotesk", "Arial", sans-serif',
 }

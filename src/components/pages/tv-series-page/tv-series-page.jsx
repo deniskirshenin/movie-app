@@ -2,7 +2,7 @@ import React from 'react';
 import { CollectionGrid, Grid } from '../../grid/grid';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useGetMovieGenresQuery } from '../../../features/api/apiSlice';
+import { useGetTVGenresQuery } from '../../../features/api/apiSlice';
 
 export const RowHeader = styled.h2`
     padding: 15px 0;
@@ -26,16 +26,16 @@ export const RowPosterLink = styled(Link)`
     }
 `;
 
-const MoviesPage = () => {
-    const { data: movieGenres } = useGetMovieGenresQuery();
+const TvSeriesPage = () => {
+    const { data: tvSeriesGenres } = useGetTVGenresQuery();
     return (
         <CollectionGrid>
             <RowHeader>
-                Movies
+                TV Series
             </RowHeader>
             <Grid>
-                {movieGenres && movieGenres.genres.map((genre) => (
-                    <RowPosterLink key={genre.id} to={`/movies-genres/${genre.id}`}>
+                {tvSeriesGenres && tvSeriesGenres.genres.map((genre) => (
+                    <RowPosterLink key={genre.id} to={`/tv-series-genres/${genre.id}`}>
                         {genre.name}
                     </RowPosterLink> 
                 ))}
@@ -44,4 +44,4 @@ const MoviesPage = () => {
     )
 }
 
-export default MoviesPage
+export default TvSeriesPage

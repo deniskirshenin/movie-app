@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const GridRow = styled.div`
     margin: 15px;
     overflow-x: scroll;
+    overflow-y: hidden;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 50%;
+    grid-auto-columns: ${(props) => props.isTrending ? '100%' : '50%'};
     scroll-snap-type: x mandatory;
     scroll-snap-stop: always;
     

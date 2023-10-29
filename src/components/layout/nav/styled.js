@@ -10,16 +10,23 @@ export const StyledNav = styled.nav`
 
 export const StyledLink = styled(NavLink)`
     display: flex;
+    flex-direction: column;
     color: #fff;
-    font-size: 16px;
-    line-height: 32px;
+    font-size: 0.8rem;
+    line-height: 1rem;
     align-items: center;
     text-decoration: none;
-    color: #c4d3c3;
+    color: #fff;
 
     transition: all 0.5s ease-in-out;
 
+    @media (min-width: 768px) {
+        flex-direction: row;
+        font-size: 1.3rem;
+        line-height: 2rem;
+    }
+
     &:hover {
-        color: #9400FF;
+        color: #bebebe;
     }
 `;

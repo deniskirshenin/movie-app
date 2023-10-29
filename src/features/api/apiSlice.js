@@ -11,9 +11,6 @@ export const apiSlice = createApi({
         }
      }),
     endpoints: builder => ({
-        getActionMovies: builder.query({
-            query: () => requests.fetchActionMovies
-        }),
         getNowPlayingMovies: builder.query({
             query: () => requests.fetchNowPlaying
         }),
@@ -32,18 +29,6 @@ export const apiSlice = createApi({
         getTVGenres: builder.query({
             query: () => requests.fetchTVGenres
         }),
-        getComedyMovies: builder.query({
-            query: () => requests.fetchComedyMovies
-        }),
-        getHorrorMovies: builder.query({
-            query: () => requests.fetchHorrorMovies
-        }),
-        getRomanceMovies: builder.query({
-            query: () => requests.fetchRomanceMovies
-        }),
-        getDocumentaries: builder.query({
-            query: () => requests.fetchDocumentaries
-        }),
         getMovie: builder.query({
             query: (movieId) => `/movie/${movieId}?api_key=${API_KEY}&append_to_response=credits,videos,similar,watch/providers`
         }),
@@ -55,24 +40,35 @@ export const apiSlice = createApi({
         }),
         getTvSeriesByGenre: builder.query({
             query: (tvSeriesGenreId) => `/discover/tv?with_genres=${tvSeriesGenreId}`
+        }),
+        getTrendingMovies: builder.query({
+            query: () => requests.fetchTrendingMovies
+        }),
+        getTrendingTvSeries: builder.query({
+            query: () => requests.fetchTrendingTvSeries
+        }),
+        getAiringToday: builder.query({
+            query: () => requests.fetchAiringToday
+        }),
+        getOnTheAir: builder.query({
+            query: () => requests.fetchOnTheAir
         })
     })
 })
 
 export const { 
-    useGetActionMoviesQuery, 
     useGetNowPlayingMoviesQuery, 
     useGetPopularMoviesQuery, 
     useGetUpcomingMoviesQuery,
     useGetTopRatedMoviesQuery,
-    useGetComedyMoviesQuery,
-    useGetHorrorMoviesQuery,
-    useGetRomanceMoviesQuery,
-    useGetDocumentariesQuery,
     useGetMovieQuery,
     useGetMoviesByCollectionQuery,
     useGetMovieGenresQuery,
     useGetTVGenresQuery,
     useGetMoviesByGenreQuery,
-    useGetTvSeriesByGenreQuery
+    useGetTvSeriesByGenreQuery,
+    useGetTrendingMoviesQuery,
+    useGetTrendingTvSeriesQuery,
+    useGetAiringTodayQuery,
+    useGetOnTheAirQuery
 } = apiSlice;

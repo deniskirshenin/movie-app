@@ -25,7 +25,7 @@ export const RowPosterLink = styled(Link)`
     transition: all ease-in-out 450ms;
     height: 100%;
     width: 100%;
-    color: #005B41;
+    color: #fff;
 
     &:hover {
         transform: scale(1.08);
@@ -37,7 +37,6 @@ export const RowPosterLink = styled(Link)`
 export const RowPoster = styled.img`
     object-fit: cover;
     width: 100%;
-    border-radius: 12px;
 `;
 
 export const RowHeader = styled.div`
@@ -52,7 +51,7 @@ export const RowTitle = styled.h2`
     font-size: 1rem;
     line-height: 1.5rem;
     font-weight: 300;
-    color: #c4d4c3;
+    color: #fff;
     padding: 10px 0;
     margin: 0;
 `;
@@ -64,7 +63,7 @@ export const RowHeaderLink = styled(Link)`
     font-size: 1.7rem;
     font-weight: 700;
     line-height: 1.3rem;
-    color: #c4d3c3;
+    color: #fff;
     text-decoration: none;
 `;
 
@@ -86,7 +85,7 @@ function Row({ title, movies }) {
                                 src={`${imageUrl}${movie.backdrop_path}`} alt={movie.name}
                             />
                             <RowTitle>
-                                {movie.original_title}
+                                {movie.original_title || movie.original_name}
                                 <MdArrowForwardIos />
                             </RowTitle>
                         </RowPosterLink> 
